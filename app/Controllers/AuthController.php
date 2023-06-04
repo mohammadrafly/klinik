@@ -16,6 +16,9 @@ class AuthController extends BaseController
             'email' => $data[0]['email'],
             'password' => $data[0]['password'],
             'name' => $data[0]['name'],
+            'nomor_hp' => $data[0]['nomor_hp'],
+            'jenis_kelamin' => $data[0]['jenis_kelamin'],
+            'usia' => $data[0]['usia'],
             'alamat' => $data[0]['alamat'],
             'role' => $data[0]['role'],
             'created_at' => $data[0]['created_at'],
@@ -34,7 +37,9 @@ class AuthController extends BaseController
         $checkpoint = $model->isUserExist($email);
         if (!$checkpoint) {
             return $this->response->setJSON([
-                'status' => true,
+                'status' => false,
+                'icon' => 'error',
+                'title' => 'Gagal!',
                 'message' => 'Email atau username tidak ditemukan',
                 
             ]);
@@ -44,11 +49,16 @@ class AuthController extends BaseController
             $this->setUserInfo($checkpoint);
             return $this->response->setJSON([
                 'status' => true,
-                'message' => 'Berhasil login'
+                'icon' => 'success',
+                'title' => 'Sukses!',
+                'message' => 'Berhasil login',
+                'role' => $checkpoint[0]['role']
             ]);
         } else {
             return $this->response->setJSON([
                 'status' => false,
+                'icon' => 'error',
+                'title' => 'Gagal!',
                 'message' => 'Gagal login',
             ]);
         }
@@ -69,13 +79,18 @@ class AuthController extends BaseController
             'role' => 'pasien',
             'kode_user' => 'USR'. mt_rand(000000, 999999) . uniqid(),
             'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+            'nomor_hp' => $this->request->getVar('nomor_hp'),
+            'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
+            'usia' => $this->request->getVar('usia'),
             'created_at' => date('Y-m-d'),
             'updated_at' => date('Y-m-d'),
         ];
 
         if ($model->isUserExist($data['email'])) {
             return $this->response->setJSON([
-                'status' => true,
+                'status' => false,
+                'icon' => 'error',
+                'title' => 'Gagal!',
                 'message' => 'Email telah dipakai',
             ]);
         }
@@ -83,12 +98,16 @@ class AuthController extends BaseController
         if (!$model->insert($data)) {
             return $this->response->setJSON([
                 'status' => false,
+                'icon' => 'error',
+                'title' => 'Gagal!',
                 'message' => 'Gagal melakukan pendaftaran'
             ]);
         } else {
             $this->setUserInfo($data);
             return $this->response->setJSON([
                 'status' => true,
+                'icon' => 'success',
+                'title' => 'Sukses!',
                 'message' => 'Berhasil melakukan pendaftaran'
             ]);
         }

@@ -22,18 +22,33 @@ class Users extends Migration
             'username' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
+                'null' => true,
             ],
             'email' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
+                'null' => true,
             ],
             'password' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
+                'null' => true,
             ],
             'name' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
+            ],
+            'usia' => [
+                'type'      => 'VARCHAR',
+                'constraint'=> '255',
+            ],
+            'nomor_hp' => [
+                'type'  => 'VARCHAR',
+                'constraint' => '255',
+            ],
+            'jenis_kelamin' => [ 
+                'type' => 'ENUM("laki-laki", "perempuan")',
+                'default' => 'laki-laki',
             ],
             'alamat' => [
                 'type' => 'TEXT',

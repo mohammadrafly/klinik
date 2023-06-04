@@ -29,7 +29,8 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'AuthController::SignIn');
+$routes->get('/', 'Home::index');
+$routes->get('antrian-online', 'Home::antrianOnline');
 $routes->match(['POST', 'GET'], 'signin', 'AuthController::SignIn');
 $routes->match(['POST', 'GET'], 'signup', 'AuthController::SignUp');
 
@@ -47,7 +48,20 @@ $routes->group('dashboard', ['filter' => 'auth'], function($routes) {
         $routes->get('delete/(:num)', 'ObatsController::delete/$1');
     });
 
+    $routes->group('kunjungan', function($routes) {
+        $routes->get('/', 'KunjunganController::index');
+        $routes->match(['POST', 'GET'], 'buat-kunjungan', 'KunjunganController::buatKunjungan');
+    });
+
+    $routes->group('laporan', function($routes) {
+        $routes->match(['POST', 'GET'], '/', 'LaporanController::index');
+    });
+
     $routes->get('logout', 'DashboardController::Logout');
+});
+
+$routes->group('pasien', ['filter' => 'authPasien'], function($routes) {
+    $routes->post('antrian-online', 'Home::antrianOnline');
 });
 
 /*

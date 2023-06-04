@@ -15,23 +15,44 @@ class Kunjungan extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
+            'nomor_antrian' => [
+                'type' => 'INT',
+                'constraint' => 11,
+            ],
             'kode_kunjungan' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'kode_user' => [
+            'kode_pasien' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
+            ],
+            'kode_dokter' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255'
             ],
             'kode_pembayaran' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
                 'null' => null,
             ],
-            'type_antrian' => [
-                'type' => 'ENUM("offline","online")',
-                'default' => 'online',
-                'null' => false,
+            'keluhan_utama' => [
+                'type' => 'TEXT',
+            ],
+            'riwayat_penyakit_sekarang' => [
+                'type' => 'TEXT',
+            ],
+            'riwayat_penyakit_dahulu' => [
+                'type' => 'TEXT',
+            ],
+            'keadaan_umum_pasien' => [
+                'type' => 'TEXT',
+            ],
+            'keterangan_penunjang' => [
+                'type' => 'TEXT',
+            ],
+            'diagnosa' => [
+                'type' => 'TEXT',
             ],
             'tindakan' => [
                 'type' => 'TEXT'
