@@ -22,6 +22,9 @@ class UsersModel extends Model
         'name',
         'alamat',
         'role',
+        'nomor_hp',
+        'jenis_kelamin',
+        'usia',
         'created_at',
         'updated_at'
     ];

@@ -14,6 +14,8 @@
 	<meta property="og:image" content="https://dompet.dexignlab.com/xhtml/social-image.png" />
 	<meta name="format-detection" content="telephone=no">
 	<title>Klinik | <?= $title ?></title>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.js"></script>
+  	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.css">
 	<link rel="shortcut icon" type="image/png" href="<?= base_url('assets/images/favicon.png') ?>" />
 	<link href="<?= base_url('assets/vendor/jquery-nice-select/css/nice-select.css') ?>" rel="stylesheet">
 	<link rel="stylesheet" href="<?= base_url('vendor/nouislider/nouislider.min.css') ?>">
@@ -35,8 +37,7 @@
             </div>
         </div>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="<?= base_url('js/Main.js') ?>"></script>
 	<script src="<?= base_url('assets/vendor/datatables/js/jquery.dataTables.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/plugins-init/datatables.init.js') ?>"></script>
@@ -49,5 +50,6 @@
 	<script src="<?= base_url('assets/js/dashboard/dashboard-1.js') ?>"></script>
     <script src="<?= base_url('assets/js/custom.min.js') ?>"></script>
 	<script src="<?= base_url('assets/js/dlabnav-init.js') ?>"></script>
+	<?= $this->renderSection('script') ?>
 </body>
 </html>

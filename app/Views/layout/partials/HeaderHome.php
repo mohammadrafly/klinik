@@ -39,11 +39,13 @@
                             </li>
                             <?php if (session()->get('isLoggedIn')): ?>
                                 <li class="profile-menu menu-has-children">
-                                    <a href="#"><i class="fa fa-user-circle"></i> John Doe</a>
+                                    <a href="#"><i class="fa fa-user-circle"></i> <?= session()->get('name') ?></a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">Profile</a></li>
-                                        <li><a href="#">Settings</a></li>
-                                        <li><a href="#">Logout</a></li>
+                                        <?php if (session()->get('role') != 'pasien'): ?>
+                                            <li><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
+                                        <?php endif ?>
+                                        <li><a href="javascript:void(0);" onclick="signOut()">Logout</a></li>
+                                        
                                     </ul>
                                 </li>
                             <?php else: ?>

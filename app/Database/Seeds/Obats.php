@@ -8,11 +8,9 @@ class Obats extends Seeder
 {
     public function run()
     {
-        $prefix = 'OBT';
-        $randomNumber = $prefix . mt_rand(000000, 999999) . uniqid();
         $data = [
             [
-                'kode_obat' => $randomNumber,
+                'kode_obat' => 'OBT'. mt_rand(000000, 999999) . uniqid(),
                 'nama' => 'Obat Batuk',
                 'deskripsi' => 'obat untuk mengobati batuk',
                 'stok' => '10',
@@ -21,7 +19,7 @@ class Obats extends Seeder
                 'updated_at' => date('Y-m-d')
             ],
             [
-                'kode_obat' => $randomNumber,
+                'kode_obat' => 'OBT'. mt_rand(000000, 999999) . uniqid(),
                 'nama' => 'Obat Sakit Kepala',
                 'deskripsi' => 'obat untuk mengobati sakit kepala',
                 'stok' => '20',

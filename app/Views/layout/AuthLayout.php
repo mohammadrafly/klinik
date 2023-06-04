@@ -16,6 +16,8 @@
 	
 	<title>Klinik</title>
 	
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.css">
 	<link rel="shortcut icon" type="image/png" href="<?= base_url('assets/images/logo-new.png') ?>" />
     <link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
 
@@ -38,6 +40,8 @@
                             </div>
                         </div>
                     </div>
+                    <br>
+                    <a href="<?= base_url('') ?>" class="btn btn-secondary btn-block">Home</a>
                 </div>
             </div>
         </div>

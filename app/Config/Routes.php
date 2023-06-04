@@ -48,13 +48,24 @@ $routes->group('dashboard', ['filter' => 'auth'], function($routes) {
         $routes->get('delete/(:num)', 'ObatsController::delete/$1');
     });
 
-    $routes->group('kunjungan', function($routes) {
-        $routes->get('/', 'KunjunganController::index');
-        $routes->match(['POST', 'GET'], 'buat-kunjungan', 'KunjunganController::buatKunjungan');
+    $routes->group('antrian', function($routes) {
+        $routes->match(['POST', 'GET'], '/', 'AntrianController::index');
+        $routes->get('get/(:num)', 'AntrianController::getAntrian/$1');
+        $routes->match(['POST', 'GET'], 'detail/(:num)', 'AntrianController::detail/$1');
     });
 
-    $routes->group('laporan', function($routes) {
-        $routes->match(['POST', 'GET'], '/', 'LaporanController::index');
+    $routes->group('kunjungan', function($routes) {
+        $routes->match(['POST', 'GET'], '/', 'KunjunganController::index');
+        $routes->post('resep', 'KunjunganController::tambahResep');
+    });
+
+    $routes->group('transaksi', function($routes) {
+        $routes->get('/', 'TransaksiController::index');
+        $routes->match(['POST', 'GET'], 'pembayaran/(:any)', 'TransaksiController::getTransaksi/$1');
+    });
+
+    $routes->group('rekam-medis', function($routes) {
+        $routes->match(['POST', 'GET'], '/', 'RekamMedisController::index');
     });
 
     $routes->get('logout', 'DashboardController::Logout');

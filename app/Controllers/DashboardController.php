@@ -25,6 +25,8 @@ class DashboardController extends BaseController
         session()->destroy();
         return $this->response->setJSON([
             'success' => TRUE,
+            'icon' => 'success',
+            'title' => 'Berhasil!',
             'message' => 'Logout Berhasil',
         ]);
     }

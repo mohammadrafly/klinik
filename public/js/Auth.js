@@ -25,10 +25,14 @@ $(document).ready(function() {
             dataType: 'JSON',
             success: function(response) {
                 if (response.status) {
-                  alert(response.message)
-                  window.location.href = `${base_url}dashboard`;
+                  if (response.role != 'pasien') {
+                    showAlert(response.icon, response.title, response.message); 
+                    window.location.href = `${base_url}dashboard`;
+                  }
+                  showAlert(response.icon, response.title, response.message); 
+                  window.location.href = `${base_url}`;
                 } else {
-                  alert(response.message);
+                  showAlert(response.icon, response.title, response.message); 
                 }
             },
             error: function() {
@@ -45,9 +49,9 @@ $(document).ready(function() {
         const usernameInput = $('#username');
         const nameInput = $('#name');
         const alamatInput = $('#alamat');
-        const usiaInput = $('usia');
-        const nomorInput = $('nomor_hp');
-        const kelaminInput = $('jenis_kelamin');
+        const usiaInput = $('#usia');
+        const nomorInput = $('#nomor_hp');
+        const kelaminInput = $('#jenis_kelamin');
   
         const email = emailInput.val();
         const password = passwordInput.val();
@@ -101,14 +105,15 @@ $(document).ready(function() {
         $.ajax({
             url: `${base_url}signup`,
             type: 'POST',
-            data: { email, password, username, name, alamat, usia, jenis_kelamin, nomor_hp },
+            data: { email, password, username, name, usia, jenis_kelamin, nomor_hp ,alamat },
             dataType: 'JSON',
             success: function(response) {
               console.log(response)
                 if (response.status) {
                   showAlert(response.icon, response.title, response.message); 
+                  window.location.href = `${base_url}`;
                 } else {
-                  alert(response.message);
+                  showAlert(response.icon, response.title, response.message); 
                 }
             },
             error: function(error) {
@@ -116,13 +121,5 @@ $(document).ready(function() {
             }
         });
     });
-
-    function showAlert(icon, title, text) {
-      Swal.fire({
-          icon: icon,
-          title: title,
-          text: text
-      });
-    }
 });
 

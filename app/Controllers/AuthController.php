@@ -9,20 +9,37 @@ class AuthController extends BaseController
 {
     function setUserInfo($data)
     {
-        return session()->set([
-            'isLoggedIn' => TRUE,
-            'kode_user' => $data[0]['kode_user'],
-            'username' => $data[0]['username'],
-            'email' => $data[0]['email'],
-            'password' => $data[0]['password'],
-            'name' => $data[0]['name'],
-            'nomor_hp' => $data[0]['nomor_hp'],
-            'jenis_kelamin' => $data[0]['jenis_kelamin'],
-            'usia' => $data[0]['usia'],
-            'alamat' => $data[0]['alamat'],
-            'role' => $data[0]['role'],
-            'created_at' => $data[0]['created_at'],
-        ]);
+        if (is_array($data)) {
+            return session()->set([
+                'isLoggedIn' => true,
+                'kode_user' => $data[0]['kode_user'],
+                'username' => $data[0]['username'],
+                'email' => $data[0]['email'],
+                'password' => $data[0]['password'],
+                'name' => $data[0]['name'],
+                'nomor_hp' => $data[0]['nomor_hp'],
+                'jenis_kelamin' => $data[0]['jenis_kelamin'],
+                'usia' => $data[0]['usia'],
+                'alamat' => $data[0]['alamat'],
+                'role' => $data[0]['role'],
+                'created_at' => $data[0]['created_at'],
+            ]);
+        } else {
+            return session()->set([
+                'isLoggedIn' => true,
+                'kode_user' => $data['kode_user'],
+                'username' => $data['username'],
+                'email' => $data['email'],
+                'password' => $data['password'],
+                'name' => $data['name'],
+                'nomor_hp' => $data['nomor_hp'],
+                'jenis_kelamin' => $data['jenis_kelamin'],
+                'usia' => $data['usia'],
+                'alamat' => $data['alamat'],
+                'role' => $data['role'],
+                'created_at' => $data['created_at'],
+            ]);
+        }
     }
 
     public function SignIn()

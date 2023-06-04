@@ -15,10 +15,6 @@ class Kunjungan extends Migration
                 'unsigned'       => true,
                 'auto_increment' => true,
             ],
-            'nomor_antrian' => [
-                'type' => 'INT',
-                'constraint' => 11,
-            ],
             'kode_kunjungan' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
@@ -30,11 +26,6 @@ class Kunjungan extends Migration
             'kode_dokter' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255'
-            ],
-            'kode_pembayaran' => [
-                'type'       => 'VARCHAR',
-                'constraint' => '255',
-                'null' => null,
             ],
             'keluhan_utama' => [
                 'type' => 'TEXT',

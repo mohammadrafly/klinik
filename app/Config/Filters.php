@@ -24,7 +24,7 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'auth'          => Auth::class,
-        'authPasien'    => Auth::class,
+        'authPasien'    => AuthPasien::class,
     ];
 
     /**

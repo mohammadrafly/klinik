@@ -15,9 +15,14 @@ class KunjunganModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = [
         'kode_kunjungan',
-        'kode_user',
-        'kode_pembayaran',
-        'type_antrian',
+        'kode_pasien',
+        'kode_dokter',
+        'keluhan_utama',
+        'riwayat_penyakit_sekarang',
+        'riwayat_penyakit_dahulu',
+        'keadaan_umum_pasien',
+        'keterangan_penunjang',
+        'diagnosa',
         'tindakan',
         'created_at',
         'updated_at'
@@ -46,4 +51,23 @@ class KunjunganModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getRekamMedis()
+    {
+        return $this->db->table('kunjungan')
+            ->select('
+                users.*,
+                tandavital.*,
+                antrian.*,
+                item.*,
+                kunjungan.*,
+            ')
+            ->join('users', 'kunjungan.kode_pasien = users.kode_user')
+            ->join('tandavital', 'kunjungan.kode_kunjungan = tandavital.kode_kunjungan')
+            ->join('antrian', 'kunjungan.kode_kunjungan = antrian.kode_kunjungan')
+            ->join('item', 'kunjungan.kode_kunjungan = item.kode_kunjungan')
+            ->where('antrian.status', 'selesai')
+            ->get()
+            ->getResultArray();
+    }
 }

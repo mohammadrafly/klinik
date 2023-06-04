@@ -19,12 +19,22 @@ class Antrian extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '255',
             ],
+            'kode_kunjungan' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => true
+            ],
+            'kode_pembayaran' => [
+                'type'       => 'VARCHAR',
+                'constraint' => '255',
+                'null' => true,
+            ],
             'nomor_antrian' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
             'status' => [
-                'type' => 'ENUM("antri", "dalam_pemeriksaan", "selesai")'
+                'type' => 'ENUM("antri", "dalam_pemeriksaan", "pembayaran", "selesai")'
             ],
             'type_antrian' => [
                 'type' => 'ENUM("offline","online")',

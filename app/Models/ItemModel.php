@@ -16,6 +16,7 @@ class ItemModel extends Model
     protected $allowedFields    = [
         'kode_kunjungan',
         'kode_obat',
+        'dosis',
         'quantity',
         'created_at',
         'updated_at'
