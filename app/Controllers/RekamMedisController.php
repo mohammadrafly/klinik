@@ -11,7 +11,7 @@ class RekamMedisController extends BaseController
     {
         $model = new KunjunganModel();
         return view('pages/dashboard/rekamMedis', [
-        //print_r([    
+        //dd([    
             'title' => 'Rekam Medis',
             'content' => $model->getRekamMedis(),
         ]);

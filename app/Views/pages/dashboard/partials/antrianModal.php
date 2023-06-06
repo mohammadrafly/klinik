@@ -8,13 +8,24 @@
             <form id="form">
                 <div class="modal-body">
                     <input type="text" hidden id="id">
+                    <div class="mb-3" id="pilih-pasien">
+                        <label for="antrian">Pasien</label>
+                        <select type="text" class="form-control input-default" id="kode_user" name="kode_user">
+                            <option value="pilih_pasien">Pilih Pasien</option>
+                            <option value="tambah_pasien">Tambah Pasien</option>
+                            <?php foreach($pasien as $data): ?>
+                            <option value="<?= $data['kode_user'] ?>"><?= $data['name'] ?> - <?= $data['kode_user'] ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+                    <div id="tambah_pasien">
                         <div class="mb-3" id="nomor_antrian_input" hidden>
                             <label for="antrian">Nomor Antrian</label>
                             <input type="number" class="form-control input-default" id="nomor_antrian" readonly>
                         </div>
                         <div class="mb-3" id="kode_pasien_input" hidden>
                             <label for="antrian">Kode Pasien</label>
-                            <input type="text" class="form-control input-default" id="kode_pasien" readonly>
+                            <input type="text" class="form-control input-default" id="kode_pasien" name="kode_pasien" readonly>
                         </div>
                         <div class="mb-3" id="status_input" hidden>
                             <label for="antrian">Status</label>
@@ -30,8 +41,8 @@
                             <input type="text" class="form-control input-default" id="name" name="name">
                         </div>
                         <div class="mb-3" id="usia_input">
-                            <label for="antrian">Usia</label>
-                            <input type="number" class="form-control input-default" id="usia" name="usia">
+                            <label for="antrian">Tanggal Lahir</label>
+                            <input type="date" class="form-control input-default" id="tanggal_lahir" name="tanggal_lahir">
                         </div>
                         <div class="mb-3" id="nomor_hp_input">
                             <label for="antrian">Nomor HP</label>
@@ -49,6 +60,7 @@
                             <label for="antrian">Alamat</label>
                             <textarea type="text" class="form-control input-default" id="alamat" name="alamat"></textarea>
                         </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>

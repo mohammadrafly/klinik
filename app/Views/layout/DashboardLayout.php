@@ -14,13 +14,12 @@
 	<meta property="og:image" content="https://dompet.dexignlab.com/xhtml/social-image.png" />
 	<meta name="format-detection" content="telephone=no">
 	<title>Klinik | <?= $title ?></title>
-	<!-- CSS -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.js"></script>
   	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.css">
 	<link rel="shortcut icon" type="image/png" href="<?= base_url('assets/images/favicon.png') ?>" />
 	<link href="<?= base_url('assets/vendor/datatables/css/jquery.dataTables.min.css') ?>" rel="stylesheet">
     <link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
 </head>
 <body>
     <div id="main-wrapper">
@@ -37,17 +36,15 @@
             </div>
         </div>
 	</div>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/js/bootstrap-timepicker.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="<?= base_url('js/Main.js') ?>"></script>
 	<script src="<?= base_url('assets/vendor/datatables/js/jquery.dataTables.min.js') ?>"></script>
     <script src="<?= base_url('assets/js/plugins-init/datatables.init.js') ?>"></script>
     <script src="<?= base_url('assets/vendor/global/global.min.js') ?>"></script>
-	<script src="<?= base_url('assets/vendor/chart.js/Chart.bundle.min.js') ?>"></script>
-	<script src="<?= base_url('assets/vendor/wnumb/wNumb.js') ?>"></script>
 	<script src="<?= base_url('assets/js/dashboard/dashboard-1.js') ?>"></script>
     <script src="<?= base_url('assets/js/custom.min.js') ?>"></script>
 	<script src="<?= base_url('assets/js/dlabnav-init.js') ?>"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
 	<?= $this->renderSection('script') ?>
 </body>
 </html>

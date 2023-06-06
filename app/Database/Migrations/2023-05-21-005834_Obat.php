@@ -26,7 +26,7 @@ class Obat extends Migration
             'deskripsi' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => null,
+                'null' => true,
             ],
             'stok' => [
                 'type' => 'INT',

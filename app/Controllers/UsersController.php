@@ -30,7 +30,6 @@ class UsersController extends BaseController
             'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
             'nomor_hp' => $this->request->getVar('nomor_hp'),
             'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
-            'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
             'created_at' => date('Y-m-d'),
             'updated_at' => date('Y-m-d'),
         ];
@@ -67,7 +66,6 @@ class UsersController extends BaseController
             'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
             'nomor_hp' => $this->request->getVar('nomor_hp'),
             'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
-            'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
             'updated_at' => date('Y-m-d'),
         ];
 

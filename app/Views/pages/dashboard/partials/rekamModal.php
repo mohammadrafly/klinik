@@ -35,7 +35,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-primary" onclick="bayarTagihan()">Bayar</button>
+                    <button type="button" class="btn btn-primary" onclick="printInvoice()">Print</button>
                 </div>
             </form>
         </div>

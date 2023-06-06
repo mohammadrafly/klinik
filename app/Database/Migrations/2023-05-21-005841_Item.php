@@ -26,11 +26,12 @@ class Item extends Migration
             'quantity' => [
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
-                'null' => null,
+                'null' => true,
             ],
             'dosis' => [
                 'type' => 'VARCHAR',
-                'constraint' => '255'
+                'constraint' => '255',
+                'null' => true,
             ],
             'created_at' => [
                 'type'    => 'DATE',

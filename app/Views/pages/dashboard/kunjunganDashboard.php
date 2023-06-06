@@ -35,9 +35,9 @@
                                                         Kerjakan
                                                     </button>
                                                     <?php else: ?>
-                                                    <button type="button" class="btn btn-primary" onclick="buatResep(<?= $data['id'] ?>)">
-                                                        Buat Resep
-                                                    </button>
+                                                        <button type="button" class="btn btn-primary" onclick="buatResep(<?= $data['id'] ?>)">
+                                                            Buat Resep
+                                                        </button>
                                                     <?php endif ?>
                                                 </td>
                                             </tr>
@@ -52,6 +52,19 @@
 <?= $this->endSection() ?>
 <?= $this->section('script') ?>
 <script>
+        $(document).ready(function() {
+            $('#kode_obat').select2();
+
+            $('#kode_obat').on('change', function() {
+                var selectedOption = $(this).find(':selected');
+                var price = selectedOption.data('price');
+
+                console.log(price);
+
+                $('#harga').val(price);
+            });
+        });
+
     function simpanResep() {
         var kodeKunjungan = $("#kode_kunjungan").val();
 
@@ -95,7 +108,6 @@
         document.getElementById('harga').value = price;
     });
 
-    // Add event listener to the "input" element
     document.getElementById('quantity').addEventListener('input', function() {
         var quantity = parseFloat(this.value);
         var price = parseFloat(document.getElementById('harga').value);
@@ -162,10 +174,21 @@
             dataType: 'JSON',
             success: function(respond) {
                 console.log(respond)
+                var dob = respond[0].tanggal_lahir;
+                var today = new Date();
+                var birthDate = new Date(dob);
+                var age = today.getFullYear() - birthDate.getFullYear();
+                var monthDiff = today.getMonth() - birthDate.getMonth();
+
+                // If the current month is earlier than the birth month, subtract 1 from the age
+                if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+                    age--;
+                }
+
                 $('#id').val(respond[0].id_antrian);
                 $('#kode_pasien').val(respond[0].kode_user);
                 $('#name').val(respond[0].nama_lengkap);
-                $('#usia').val(respond[0].usia);
+                $('#usia').val(age);
                 $('#nomor_hp').val(respond[0].nomor_hp);
                 $('#jenis_kelamin').val(respond[0].jenis_kelamin);
                 $('#alamat').val(respond[0].alamat);

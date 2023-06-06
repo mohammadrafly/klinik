@@ -37,16 +37,6 @@
                                             </tr>
                                             <?php endforeach ?>
                                         </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Nomor Antrian</th>
-                                                <th>Kode Pasien</th>
-                                                <th>Status</th>
-                                                <th>Tipe Antrian</th>
-                                                <th>Tanggal</th>
-                                                <th>Opsi</th>
-                                            </tr>
-                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
@@ -56,4 +46,19 @@
 <?= $this->endSection() ?>
 <?= $this->section('script') ?>
 <script src="<?= base_url('js/Antrian.js') ?>"></script>
+<script>
+$(document).ready(function() {
+    $('#kode_user').select2();
+    $('#kode_user').on('change', function() {
+        var selectedStatus = $(this).val();
+
+        if (selectedStatus === 'tambah_pasien') {
+            $('#tambah_pasien').show();
+        } else {
+            $('#tambah_pasien').hide();
+        }
+    });
+});
+
+</script>
 <?= $this->endSection() ?>

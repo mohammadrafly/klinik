@@ -39,7 +39,7 @@
                                         }
                                     endforeach;
 
-                                    foreach ($mergedData as $data) :
+                                    foreach ($mergedData as $data):
                                 ?>
                                     <tr>
                                         <td><?= $data['nomor_antrian'] ?></td>
@@ -122,7 +122,7 @@ function printInvoice() {
 }
 
   $(document).ready(function() {
-    $('.btn-bayar').on('click', function() {
+    $('.btn-details').on('click', function() {
       var kode = $(this).data('kode');
       bayar(kode);
     });

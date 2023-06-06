@@ -23,25 +23,60 @@
     <link rel="stylesheet" href="<?= base_url('assets-fe/css/linearicons.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets-fe/css/style.css') ?>">
     <style>
-        .modern-button {
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 10px;
-            background-color: white;
-            color: black;
-            text-decoration: none;
-            border: none;
-            font-family: Arial, sans-serif;
-            font-size: 16px;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s, color 0.3s, transform 0.3s;
-        }
+        /* User List Styles */
+.user-list {
+    list-style: none;
+    padding: 0;
+}
 
-        .modern-button:hover {
-            background-color: #f2f2f2;
-            color: #333;
-            transform: scale(1.05);
-        }
+.user-list li {
+    color: #fff;
+    background-color: #4285F4;
+    margin-bottom: 10px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.user-list li:hover {
+    background-color: #3367D6;
+}
+
+/* Chat Box Styles */
+.chat-box {
+    background-color: #f2f2f2;
+    padding: 20px;
+    height: 400px;
+    overflow-y: scroll;
+}
+
+/* Chat Input Styles */
+.chat-input {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.message-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.send-button {
+    margin-left: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.send-button:hover {
+    background-color: #45a049;
+}
+
     </style>
 </head>
 <body>
@@ -58,8 +93,16 @@
     <!-- Footer Area Starts -->
     <?= $this->include('layout/partials/FooterHome') ?>
     <!-- Footer Area End -->
+    <div id="chatContainer">
+        <div id="chatMessages"></div>
+        <div id="chatForm">
+            <input type="text" id="messageInput" placeholder="Type your message">
+            <button id="sendButton">Send</button>
+        </div>
+    </div>
 
     <!-- Javascript -->
+
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script src="<?= base_url('js/Main.js') ?>"></script>
     <script src="<?= base_url('assets-fe/js/vendor/jquery-2.2.4.min.js') ?>"></script>
@@ -70,6 +113,8 @@
     <script src="<?= base_url('assets-fe/js/vendor/jquery.nice-select.min.js') ?>"></script>
     <script src="<?= base_url('assets-fe/js/vendor/superfish.min.js') ?>"></script>
     <script src="<?= base_url('assets-fe/js/main.js') ?>"></script>
+    <script>
+    </script>
     <?= $this->renderSection('script') ?>
 </body>
 </html>

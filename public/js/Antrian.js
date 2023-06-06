@@ -10,7 +10,6 @@ function detail(id) {
             $('#status').val(respond.status);
             $('#antrian').modal('show');
             $('#nomor_antrian_input').removeAttr('hidden');
-            $('#kode_pasien_input').removeAttr('hidden');
             $('#status_input').removeAttr('hidden');
 
             $('#name_input').hide();
@@ -18,6 +17,7 @@ function detail(id) {
             $('#nomor_hp_input').hide();
             $('#jenis_kelamin_input').hide();
             $('#alamat_input').hide();
+            $('#pilih-pasien').hide();
 
             $('.modal-title').text('Detail Antrian'); 
 

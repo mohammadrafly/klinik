@@ -11,11 +11,14 @@
                     <input type="text" id="kode_kunjungan" name="kode_kunjungan" hidden>
                     <div class="row">
                         <div class="col-md-3 mb-3">
-                            <label for="antrian">Obat</label>
+                            <label for="antrian">Item</label>
                             <select type="text" class="form-control input-default" id="kode_obat" name="kode_obat">
-                                <option>Pilih Obat</option>
+                                <option>Pilih Item</option>
                                 <?php foreach($obat as $data): ?>
                                 <option value="<?= $data['kode_obat'] ?>" data-price="<?= $data['harga'] ?>"><?= $data['nama'] ?></option>
+                                <?php endforeach ?>
+                                <?php foreach($tindakan as $data): ?>
+                                <option value="<?= $data['kode_tindakan'] ?>" data-price="<?= $data['harga'] ?>"><?= $data['nama_tindakan'] ?></option>
                                 <?php endforeach ?>
                             </select>
                         </div>

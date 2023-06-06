@@ -8,6 +8,7 @@ use App\Models\ItemModel;
 use App\Models\KunjunganModel;
 use App\Models\ObatModel;
 use App\Models\TandaVital;
+use App\Models\TindakanModel;
 use App\Models\UsersModel;
 
 class KunjunganController extends BaseController
@@ -19,6 +20,7 @@ class KunjunganController extends BaseController
         $modelObat = new ObatModel();
         $modelUsers = new UsersModel();
         $modelVital = new TandaVital();
+        $modelTindakan = new TindakanModel();
         if ($this->request->getMethod(true) !== 'POST') {
             return view('pages/dashboard/kunjunganDashboard', [
             //dd([  
@@ -26,9 +28,11 @@ class KunjunganController extends BaseController
                 'content' => $modelAntrian
                     ->where('created_at', date('Y-m-d'))
                     ->where('status', 'dalam_pemeriksaan')
+                    ->orWhere('status', 'tindakan')
                     ->orderBy('nomor_antrian', 'ASC')
                     ->findAll(),
                 'obat' => $modelObat->findAll(),
+                'tindakan' => $modelTindakan->findAll(),
                 'dokter' => $modelUsers->where('role', 'dokter')->findAll(),
             ]);
         }
@@ -139,6 +143,7 @@ class KunjunganController extends BaseController
             'message' => 'Berhasil membuat resep'
         ]);
     }
+
     
     private function updateStock($modelObat, $kode_obat, $quantity, &$updateErrors)
     {

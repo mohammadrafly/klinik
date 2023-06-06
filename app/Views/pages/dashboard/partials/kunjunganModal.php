@@ -102,7 +102,7 @@
                             <textarea type="text" class="form-control input-default" id="diagnosa" name="diagnosa"></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="antrian">Tindakan yang di lakukan</label>
+                            <label for="antrian">Tindakan</label>
                             <textarea type="text" class="form-control input-default" id="tindakan" name="tindakan"></textarea>
                         </div>
                     </div>

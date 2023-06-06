@@ -89,4 +89,24 @@ class KunjunganModel extends Model
         ->get()
         ->getResultArray();
     }
+
+    public function findDataInBetween($start, $end)
+    {
+        return $this->db->table('kunjungan')
+        ->select('
+            users.*,
+            item.*,
+            obat.*,
+            kunjungan.*,
+            antrian.*
+        ')
+        ->join('antrian', 'kunjungan.kode_kunjungan = antrian.kode_kunjungan')
+        ->join('users', 'kunjungan.kode_pasien = users.kode_user')
+        ->join('item', 'kunjungan.kode_kunjungan = item.kode_kunjungan')
+        ->join('obat', 'item.kode_obat = obat.kode_obat')
+        ->where("kunjungan.created_at BETWEEN '$start' AND '$end'")
+        ->where('antrian.status', 'selesai')
+        ->get()
+        ->getResultArray();
+    }
 }

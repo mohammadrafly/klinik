@@ -3,9 +3,18 @@
 namespace App\Controllers;
 
 use App\Models\Antrian;
+use App\Models\UsersModel;
 
 class Home extends BaseController
 {
+    public function konsultasi()
+    {
+        $model = new UsersModel();
+        return view('pages/home/konsultasi', [
+            'users' => $model->where('id !=', session()->get('id'))->findAll(),
+        ]);
+    }
+
     public function index()
     {
         return view('pages/home/index');

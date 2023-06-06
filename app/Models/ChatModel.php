@@ -4,29 +4,21 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UsersModel extends Model
+class ChatModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'users';
+    protected $table            = 'chat';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'kode_user',
-        'username',
-        'email',
-        'password',
-        'email',
-        'name',
-        'alamat',
-        'role',
-        'tanggal_lahir',
-        'nomor_hp',
-        'jenis_kelamin',
+        'sender_id',
+        'receiver_id',
+        'message',
         'created_at',
-        'updated_at'
+        'updated_at',
     ];
 
     // Dates
@@ -52,11 +44,4 @@ class UsersModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    function isUserExist($email) {
-        return $this->db->table('users')
-                        ->like('email', $email)
-                        ->orLike('username', $email)
-                        ->get()->getResultArray();
-    }
 }

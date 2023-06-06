@@ -46,7 +46,7 @@ class Kunjungan extends Migration
                 'type' => 'TEXT',
             ],
             'tindakan' => [
-                'type' => 'TEXT'
+                'type' => 'TEXT',
             ],
             'created_at' => [
                 'type'    => 'DATE',

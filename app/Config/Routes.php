@@ -31,8 +31,14 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('antrian-online', 'Home::antrianOnline');
+$routes->get('konsultasi', 'Home::konsultasi');
 $routes->match(['POST', 'GET'], 'signin', 'AuthController::SignIn');
 $routes->match(['POST', 'GET'], 'signup', 'AuthController::SignUp');
+
+$routes->get('chat/message', 'ChatController::load');
+$routes->post('chat/send', 'ChatController::send');
+$routes->get('fetch/profile', 'ChatController::fetchUser');
+$routes->get('fetch/user/list', 'ChatController::fetchUserList');
 
 $routes->group('dashboard', ['filter' => 'auth'], function($routes) {
     $routes->get('/', 'DashboardController::index');
@@ -74,6 +80,7 @@ $routes->group('dashboard', ['filter' => 'auth'], function($routes) {
     $routes->group('kunjungan', function($routes) {
         $routes->match(['POST', 'GET'], '/', 'KunjunganController::index');
         $routes->post('resep', 'KunjunganController::tambahResep');
+        $routes->post('tindakan', 'KunjunganController::tambahTindakan');
     });
 
     $routes->group('transaksi', function($routes) {
@@ -82,7 +89,8 @@ $routes->group('dashboard', ['filter' => 'auth'], function($routes) {
     });
 
     $routes->group('laporan', function($routes) {
-        $routes->match(['POST', 'GET'], '/', 'LaporanController');
+        $routes->match(['POST', 'GET'], '/', 'LaporanController::index');
+        $routes->get('export/(:any)/(:any)', 'LaporanController::export/$1/$2');
     });
 
     $routes->group('rekam-medis', function($routes) {
