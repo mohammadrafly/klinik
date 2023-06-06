@@ -11,36 +11,43 @@
                                     <table id="example" class="display" style="min-width: 845px">
                                         <thead>
                                             <tr>
-                                                <th>Nama</th>
-                                                <th>Email</th>
-                                                <th>Username</th>
-                                                <th>Alamat</th>
-                                                <th>Role</th>
-                                                <th>Joined</th>
+                                                <th>Kode Kunjungan</th>
+                                                <th>Nama Pasien</th>
+                                                <th>Keluhan</th>
+                                                <th>Tindakan</th>
+                                                <th>Hari/Tanggal</th>
+                                                <th>Opsi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach($content as $data): ?>
+                                        <?php
+                                        $mergedData = [];
+
+                                        foreach ($content as $data) {
+                                            $kodeKunjungan = $data['kode_kunjungan'];
+
+                                            if (!isset($mergedData[$kodeKunjungan])) {
+                                                // Create a new entry if it doesn't exist
+                                                $mergedData[$kodeKunjungan] = $data;
+                                            } else {
+                                                // Merge the existing entry with the current data
+                                                $mergedData[$kodeKunjungan] = array_merge($mergedData[$kodeKunjungan], $data);
+                                            }
+                                        }
+                                        ?>
+                                        <?php foreach($mergedData as $data): ?>
                                             <tr>
+                                                <td><?= $data['kode_kunjungan'] ?></td>
                                                 <td><?= $data['name'] ?></td>
-                                                <td><?= $data['email'] ?></td>
-                                                <td><?= $data['username'] ?></td>
-                                                <td><?= $data['alamat'] ?></td>
-                                                <td><?= $data['role'] ?></td>
+                                                <td><?= $data['keluhan_utama'] ?></td>
+                                                <td><?= $data['tindakan'] ?></td>
                                                 <td><?= $data['created_at'] ?></td>
+                                                <td>
+                                                    <button class="btn btn-primary" onclick="details(<?= $data['kode_kunjungan'] ?>)">Details</button>
+                                                </td>
                                             </tr>
-                                            <?php endforeach ?>
+                                        <?php endforeach ?>
                                         </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>Nama</th>
-                                                <th>Email</th>
-                                                <th>Username</th>
-                                                <th>Alamat</th>
-                                                <th>Role</th>
-                                                <th>Joined</th>
-                                            </tr>
-                                        </tfoot>
                                     </table>
                                 </div>
                             </div>

@@ -39,13 +39,30 @@ $routes->group('dashboard', ['filter' => 'auth'], function($routes) {
     $routes->group('users', function($routes) {
         $routes->match(['POST', 'GET'], '/', 'UsersController::index');
         $routes->match(['POST', 'GET'], 'update/(:num)', 'UsersController::update/$1');
-        $routes->get('delete/(:num)', 'UsersController::delete/$1');
+        $routes->delete('delete/(:num)', 'UsersController::delete/$1');
+    });
+
+    $routes->group('pasien', function($routes) {
+        $routes->match(['POST', 'GET'], '/', 'PasienController::index');
+        $routes->match(['POST', 'GET'], 'update/(:num)', 'PasienController::update/$1');
+        $routes->delete('delete/(:num)', 'PasienController::delete/$1');
     });
 
     $routes->group('obats', function($routes) {
         $routes->match(['POST', 'GET'], '/', 'ObatsController::index');
         $routes->match(['POST', 'GET'], 'update/(:num)', 'ObatsController::update/$1');
-        $routes->get('delete/(:num)', 'ObatsController::delete/$1');
+        $routes->delete('delete/(:num)', 'ObatsController::delete/$1');
+    });
+
+    $routes->group('jadwal', function($routes) {
+        $routes->get('/', 'JadwalController::index');
+        $routes->match(['POST', 'GET'], 'update/(:num)', 'JadwalController::update/$1');
+    });
+
+    $routes->group('tindakan', function($routes) {
+        $routes->match(['POST', 'GET'], '/', 'TindakanController::index');
+        $routes->match(['POST', 'GET'], 'update/(:num)', 'TindakanController::update/$1');
+        $routes->delete('delete/(:num)', 'TindakanController::delete/$1');
     });
 
     $routes->group('antrian', function($routes) {
@@ -62,6 +79,10 @@ $routes->group('dashboard', ['filter' => 'auth'], function($routes) {
     $routes->group('transaksi', function($routes) {
         $routes->get('/', 'TransaksiController::index');
         $routes->match(['POST', 'GET'], 'pembayaran/(:any)', 'TransaksiController::getTransaksi/$1');
+    });
+
+    $routes->group('laporan', function($routes) {
+        $routes->match(['POST', 'GET'], '/', 'LaporanController');
     });
 
     $routes->group('rekam-medis', function($routes) {

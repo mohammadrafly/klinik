@@ -9,16 +9,12 @@
                 <div class="modal-body">
                         <input type="text" hidden id="id" name="id">
                         <div class="mb-3">
-                            <label for="antrian">Nama Obat</label>
-                            <input type="text" class="form-control input-default" id="nama" name="nama">
+                            <label for="antrian">Nama Tindakan</label>
+                            <input type="text" class="form-control input-default" id="nama_tindakan" name="nama_tindakan">
                         </div>
                         <div class="mb-3">
                             <label for="antrian">Deskripsi</label>
                             <textarea type="text" class="form-control input-default" id="deskripsi" name="deskripsi"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="antrian">Stok</label>
-                            <input type="number" class="form-control input-default" id="stok" name="stok">
                         </div>
                         <div class="mb-3">
                             <label for="antrian">Harga<label>

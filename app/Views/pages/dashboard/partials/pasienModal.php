@@ -8,16 +8,6 @@
             <form id="form">
                 <div class="modal-body">
                         <input type="text" hidden id="id" name="id">
-                        <div class="mb-3" id="role_input">
-                            <label for="antrian">Role</label>
-                            <select type="text" class="form-control input-default" id="role" name="role">
-                                <option>Pilih Role</option>
-                                <option value="resepsionis">Resepsionis</option>
-                                <option value="dokter">Dokter</option>
-                                <option value="admin">Admin</option>
-                                <option value="pasien">Pasien</option>
-                            </select>
-                        </div>
                         <div class="mb-3" id="name_input">
                             <label for="antrian">Nama Lengkap</label>
                             <input type="text" class="form-control input-default" id="name" name="name">

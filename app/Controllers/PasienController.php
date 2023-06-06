@@ -5,17 +5,17 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\UsersModel;
 
-class UsersController extends BaseController
+class PasienController extends BaseController
 {
     public function index()
     {
         $model = new UsersModel();
         if ($this->request->getMethod(true) !== 'POST') {
             $data = [
-                'content' => $model->findAll(),
-                'title' => 'Data User'
+                'content' => $model->where('role', 'pasien')->findAll(),
+                'title' => 'Data Pasien'
             ];
-            return view('pages/dashboard/usersDashboard', $data);
+            return view('pages/dashboard/pasienDashboard', $data);
         }
 
         $data = [
@@ -26,11 +26,10 @@ class UsersController extends BaseController
             'email' => $this->request->getVar('email'),
             'name' => $this->request->getVar('name'),
             'alamat' => $this->request->getVar('alamat'),
-            'role' => $this->request->getVar('role'),
+            'role' => 'pasien',
             'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
             'nomor_hp' => $this->request->getVar('nomor_hp'),
             'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
-            'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
             'created_at' => date('Y-m-d'),
             'updated_at' => date('Y-m-d'),
         ];
@@ -63,11 +62,9 @@ class UsersController extends BaseController
             'email' => $this->request->getVar('email'),
             'name' => $this->request->getVar('name'),
             'alamat' => $this->request->getVar('alamat'),
-            'role' => $this->request->getVar('role'),
             'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
             'nomor_hp' => $this->request->getVar('nomor_hp'),
             'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
-            'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
             'updated_at' => date('Y-m-d'),
         ];
 

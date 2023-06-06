@@ -27,8 +27,8 @@
                                             </select>
                                         </div>
                                         <div class="mb-3">
-                                            <label class="mb-1"><strong>Usia</strong></label>
-                                            <input id="usia" name="usia" type="number" class="form-control" placeholder="25">
+                                            <label class="mb-1"><strong>Tanggal Lahir</strong></label>
+                                            <input id="tanggal_lahir" name="tanggal_lahir" type="date" class="form-control">
                                         </div>
                                         <div class="mb-3">
                                             <label class="mb-1"><strong>Alamat</strong></label>

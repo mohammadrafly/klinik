@@ -9,37 +9,20 @@ class AuthController extends BaseController
 {
     function setUserInfo($data)
     {
-        if (is_array($data)) {
-            return session()->set([
-                'isLoggedIn' => true,
-                'kode_user' => $data[0]['kode_user'],
-                'username' => $data[0]['username'],
-                'email' => $data[0]['email'],
-                'password' => $data[0]['password'],
-                'name' => $data[0]['name'],
-                'nomor_hp' => $data[0]['nomor_hp'],
-                'jenis_kelamin' => $data[0]['jenis_kelamin'],
-                'usia' => $data[0]['usia'],
-                'alamat' => $data[0]['alamat'],
-                'role' => $data[0]['role'],
-                'created_at' => $data[0]['created_at'],
-            ]);
-        } else {
-            return session()->set([
-                'isLoggedIn' => true,
-                'kode_user' => $data['kode_user'],
-                'username' => $data['username'],
-                'email' => $data['email'],
-                'password' => $data['password'],
-                'name' => $data['name'],
-                'nomor_hp' => $data['nomor_hp'],
-                'jenis_kelamin' => $data['jenis_kelamin'],
-                'usia' => $data['usia'],
-                'alamat' => $data['alamat'],
-                'role' => $data['role'],
-                'created_at' => $data['created_at'],
-            ]);
-        }
+        return session()->set([
+            'isLoggedIn' => true,
+            'kode_user' => $data[0]['kode_user'],
+            'username' => $data[0]['username'],
+            'email' => $data[0]['email'],
+            'password' => $data[0]['password'],
+            'name' => $data[0]['name'],
+            'nomor_hp' => $data[0]['nomor_hp'],
+            'jenis_kelamin' => $data[0]['jenis_kelamin'],
+            'tanggal_lahir' => $data[0]['tanggal_lahir'],
+            'alamat' => $data[0]['alamat'],
+            'role' => $data[0]['role'],
+            'created_at' => $data[0]['created_at'],
+        ]);
     }
 
     public function SignIn()
@@ -98,7 +81,7 @@ class AuthController extends BaseController
             'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
             'nomor_hp' => $this->request->getVar('nomor_hp'),
             'jenis_kelamin' => $this->request->getVar('jenis_kelamin'),
-            'usia' => $this->request->getVar('usia'),
+            'tanggal_lahir' => $this->request->getVar('tanggal_lahir'),
             'created_at' => date('Y-m-d'),
             'updated_at' => date('Y-m-d'),
         ];

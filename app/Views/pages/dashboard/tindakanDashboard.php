@@ -7,30 +7,28 @@
                                 <button type="button" class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#modal">Tambah Data</button>
                                 <h4 class="card-title"><?= $title ?></h4>
                             </div>
-                            <?= $this->include('pages/dashboard/partials/obatsModal') ?>
+                            <?= $this->include('pages/dashboard/partials/tindakanModal') ?>
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table id="example" class="display" style="min-width: 845px">
                                         <thead>
                                             <tr>
-                                                <th>Kode Obat</th>
-                                                <th>Nama Obat</th>
+                                                <th>Nama Tindakan</th>
                                                 <th>Deskripsi</th>
-                                                <th>Stok</th>
                                                 <th>Harga</th>
-                                                <th>Dibuat Tanggal</th>
+                                                <th>Dibuat</th>
+                                                <th>Diperbarui</th>
                                                 <th>Opsi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php foreach($content as $data): ?>
                                             <tr>
-                                                <td><?= $data['kode_obat'] ?></td>
-                                                <td><?= $data['nama'] ?></td>
+                                                <td><?= $data['nama_tindakan'] ?></td>
                                                 <td><?= $data['deskripsi'] ?></td>
-                                                <td><?= $data['stok'] ?></td>
                                                 <td><?= $data['harga'] ?></td>
                                                 <td><?= $data['created_at'] ?></td>
+                                                <td><?= $data['updated_at'] ?></td>
                                                 <td>
                                                     <button class="btn btn-primary" onclick="edit(<?= $data['id'] ?>)">Update</button>
                                                     <button class="btn btn-danger" onclick="deleteItem(<?= $data['id'] ?>)">Delete</button>
@@ -52,7 +50,7 @@ function simpan() {
   var formData = new FormData(form);
   var id = $('#id').val();
 
-  var url = id ? `${base_url}dashboard/obats/update/${id}` : `${base_url}dashboard/obats`;
+  var url = id ? `${base_url}dashboard/tindakan/update/${id}` : `${base_url}dashboard/tindakan`;
 
   fetch(url, {
     method: 'POST',
@@ -73,15 +71,20 @@ function simpan() {
 }
 
 function edit(id) {
-    fetch(`${base_url}dashboard/obats/update/${id}`)
+    fetch(`${base_url}dashboard/tindakan/update/${id}`)
     .then(response => response.json())
     .then(data => {
         console.log(data);
         $('#id').val(data.id);
-        $('#nama').val(data.nama);
-        $('#deskripsi').val(data.deskripsi);
-        $('#stok').val(data.stok);
-        $('#harga').val(data.harga);
+        $('#username').val(data.username);
+        $('#email').val(data.email);
+        $('#password-input').hide();
+        $('#name').val(data.name);
+        $('#alamat').val(data.alamat);
+        $('#role').val(data.role);
+        $('#tanggal_lahir').val(data.tanggal_lahir);
+        $('#nomor_hp').val(data.nomor_hp);
+        $('#jenis_kelamin').val(data.jenis_kelamin);
         $('#modal').modal('show');
     })
     .catch(error => {
@@ -92,10 +95,10 @@ function edit(id) {
 function deleteItem(id) {
     const confirmDelete = confirm('Are you sure you want to delete this item?');
     if (!confirmDelete) {
-        return; // Abort the deletion if the user cancels
+        return;
     }
 
-    fetch(`${base_url}dashboard/obats/delete/${id}`, {
+    fetch(`${base_url}dashboard/tindakan/delete/${id}`, {
         method: 'DELETE'
     })
     .then(response => response.json())

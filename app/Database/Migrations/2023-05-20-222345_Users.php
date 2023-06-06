@@ -38,7 +38,7 @@ class Users extends Migration
                 'type'       => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'usia' => [
+            'tanggal_lahir' => [
                 'type'      => 'VARCHAR',
                 'constraint'=> '255',
             ],
@@ -52,6 +52,10 @@ class Users extends Migration
             ],
             'alamat' => [
                 'type' => 'TEXT',
+            ],
+            'tanggal_lahir' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
             ],
             'role' => [
                 'type' => 'ENUM("dokter","admin","pasien","resepsionis")',

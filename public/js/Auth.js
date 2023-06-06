@@ -77,17 +77,17 @@ $(document).ready(function() {
           return;
         }
 
-        if (nomor_hp) {
+        if (!nomor_hp) {
           alert("Nomor HP tidak boleh kosong");
           return;
         }
   
-        if (jenis_kelamin) {
+        if (!jenis_kelamin) {
           alert("Jenis Kelamin tidak boleh kosong");
           return;
         }
 
-        if (usia) {
+        if (!usia) {
           alert("Usia tidak boleh kosong");
           return;
         }
@@ -111,7 +111,7 @@ $(document).ready(function() {
               console.log(response)
                 if (response.status) {
                   showAlert(response.icon, response.title, response.message); 
-                  window.location.href = `${base_url}`;
+                  window.location.href = `${base_url}signin`;
                 } else {
                   showAlert(response.icon, response.title, response.message); 
                 }

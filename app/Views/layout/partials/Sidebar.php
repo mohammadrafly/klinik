@@ -27,33 +27,94 @@
 							<span class="nav-text">Antrian</span>
 						</a>
 					</li>
-					<?php endif ?>
-					<?php if (session()->get('role') == 'dokter'): ?>
-					<li><a href="<?= base_url('dashboard/kunjungan') ?>" class="ai-icon" aria-expanded="false">
-							<i class="flaticon-025-dashboard"></i>
-							<span class="nav-text">Kunjungan</span>
-						</a>
-					</li>
-					<?php endif ?>
 					<li><a href="<?= base_url('dashboard/transaksi') ?>" class="ai-icon" aria-expanded="false">
 							<i class="flaticon-025-dashboard"></i>
-							<span class="nav-text">Transaksi</span>
-						</a>
-					</li>
-					<?php if (session()->get('role') == 'admin'): ?>
-                    <li><a href="<?= base_url('dashboard/users') ?>" class="ai-icon" aria-expanded="false">
-							<i class="flaticon-025-dashboard"></i>
-							<span class="nav-text">Data Users</span>
-						</a>
-					</li>
-                    <li><a href="<?= base_url('dashboard/obats') ?>" class="ai-icon" aria-expanded="false">
-							<i class="flaticon-025-dashboard"></i>
-							<span class="nav-text">Data Obat</span>
+							<span class="nav-text">Data Administrasi/Transaksi</span>
 						</a>
 					</li>
 					<li><a href="<?= base_url('dashboard/rekam-medis') ?>" class="ai-icon" aria-expanded="false">
 							<i class="flaticon-025-dashboard"></i>
-							<span class="nav-text">Rekam Medis</span>
+							<span class="nav-text">Data Rekam Medis</span>
+						</a>
+					</li>
+					<li><a href="<?= base_url('dashboard/pasien') ?>" class="ai-icon" aria-expanded="false">
+							<i class="flaticon-025-dashboard"></i>
+							<span class="nav-text">Data Pasien</span>
+						</a>
+					</li>
+					<?php endif ?>
+					<?php if (session()->get('role') == 'dokter'): ?>
+					<li><a href="<?= base_url('dashboard/kunjungan') ?>" class="ai-icon" aria-expanded="false">
+							<i class="flaticon-025-dashboard"></i>
+							<span class="nav-text">Pemeriksaan</span>
+						</a>
+					</li>
+					<li><a href="<?= base_url('dashboard/obats') ?>" class="ai-icon" aria-expanded="false">
+							<i class="flaticon-025-dashboard"></i>
+							<span class="nav-text">Data Obat</span>
+						</a>
+					</li>
+					<li><a href="<?= base_url('dashboard/pasien') ?>" class="ai-icon" aria-expanded="false">
+							<i class="flaticon-025-dashboard"></i>
+							<span class="nav-text">Data Pasien</span>
+						</a>
+					</li>
+					<li><a href="<?= base_url('dashboard/rekam-medis') ?>" class="ai-icon" aria-expanded="false">
+							<i class="flaticon-025-dashboard"></i>
+							<span class="nav-text">Data Rekam Medis</span>
+						</a>
+					</li>
+					<?php endif ?>
+
+					<?php if (session()->get('role') == 'admin'): ?>
+					<li><a href="<?= base_url('dashboard/jadwal') ?>" class="ai-icon" aria-expanded="false">
+							<i class="flaticon-025-dashboard"></i>
+							<span class="nav-text">Jadwal Buka</span>
+						</a>
+					</li>
+					<li><a href="<?= base_url('dashboard/laporan') ?>" class="ai-icon" aria-expanded="false">
+							<i class="flaticon-025-dashboard"></i>
+							<span class="nav-text">Laporan Keuangan</span>
+						</a>
+					</li>
+					<li><a href="<?= base_url('dashboard/transaksi') ?>" class="ai-icon" aria-expanded="false">
+							<i class="flaticon-025-dashboard"></i>
+							<span class="nav-text">Data Administrasi/Transaksi</span>
+						</a>
+					</li>
+					<li><a href="<?= base_url('dashboard/antrian') ?>" class="ai-icon" aria-expanded="false">
+							<i class="flaticon-025-dashboard"></i>
+							<span class="nav-text">Data Antrian</span>
+						</a>
+					</li>	
+					<li><a href="<?= base_url('dashboard/tindakan') ?>" class="ai-icon" aria-expanded="false">
+							<i class="flaticon-025-dashboard"></i>
+							<span class="nav-text">Data Tindakan</span>
+						</a>
+					</li>	
+                    <li><a href="<?= base_url('dashboard/rekam-medis') ?>" class="ai-icon" aria-expanded="false">
+							<i class="flaticon-025-dashboard"></i>
+							<span class="nav-text">Data Rekam Medis</span>
+						</a>
+					</li>
+					<li><a href="<?= base_url('dashboard/users') ?>" class="ai-icon" aria-expanded="false">
+							<i class="flaticon-025-dashboard"></i>
+							<span class="nav-text">Data User</span>
+						</a>
+					</li>
+					<li><a href="<?= base_url('dashboard/obats') ?>" class="ai-icon" aria-expanded="false">
+							<i class="flaticon-025-dashboard"></i>
+							<span class="nav-text">Data Obat</span>
+						</a>
+					</li>
+					<li><a href="<?= base_url('dashboard/pasien') ?>" class="ai-icon" aria-expanded="false">
+							<i class="flaticon-025-dashboard"></i>
+							<span class="nav-text">Data Pasien</span>
+						</a>
+					</li>
+					<li><a href="<?= base_url('dashboard/kunjungan') ?>" class="ai-icon" aria-expanded="false">
+							<i class="flaticon-025-dashboard"></i>
+							<span class="nav-text">Pemeriksaan</span>
 						</a>
 					</li>
 					<?php endif ?>

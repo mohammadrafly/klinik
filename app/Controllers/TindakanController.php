@@ -3,26 +3,25 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\ObatModel;
+use App\Models\TindakanModel;
 
-class ObatsController extends BaseController
+class TindakanController extends BaseController
 {
     public function index()
     {
-        $model = new ObatModel();
+        $model = new TindakanModel();
         if ($this->request->getMethod(true) !== 'POST') {
             $data = [
                 'content' => $model->findAll(),
-                'title' => 'Data Obat'
+                'title' => 'Data Tindakan'
             ];
-            return view('pages/dashboard/obatsDashboard', $data);
+            return view('pages/dashboard/tindakanDashboard', $data);
         }
 
         $data = [
-            'kode_obat' => 'OBT'. mt_rand(000000, 999999) . uniqid(),
-            'nama' => $this->request->getVar('nama'),
+            'kode_tindakan' => 'TDK'. mt_rand(000000, 999999) . uniqid(),
+            'nama_tindakan' => $this->request->getVar('nama_tindakan'),
             'deskripsi' => $this->request->getVar('deskripsi'),
-            'stok' => $this->request->getVar('stok'),
             'harga' => $this->request->getVar('harga'),
             'created_at' => date('Y-m-d'),
             'updated_at' => date('Y-m-d'),
@@ -45,14 +44,13 @@ class ObatsController extends BaseController
 
     public function update($id)
     {
-        $model = new ObatModel();
+        $model = new TindakanModel();
         if ($this->request->getMethod(true) !== 'POST') {
             return $this->response->setJSON($model->find($id));
         }
         $data = [
-            'nama' => $this->request->getVar('nama'),
+            'nama_tindakan' => $this->request->getVar('nama_tindakan'),
             'deskripsi' => $this->request->getVar('deskripsi'),
-            'stok' => $this->request->getVar('stok'),
             'harga' => $this->request->getVar('harga'),
             'updated_at' => date('Y-m-d'),
         ];
@@ -74,7 +72,7 @@ class ObatsController extends BaseController
 
     public function delete($id)
     {
-        $model = new ObatModel();
+        $model = new TindakanModel();
         $model->where('id', $id)->delete($id);
         return $this->response->setJSON([
             'status' => true,

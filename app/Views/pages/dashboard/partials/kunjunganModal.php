@@ -68,15 +68,15 @@
                         <h2>Tanda Vital</h2>
                         <div class="mb-3">
                             <label for="antrian">Tekanan Darah</label>
-                            <input type="number" class="form-control input-default" id="tekanan_darah" name="tekanan_darah">
+                            <input type="text" class="form-control input-default" id="tekanan_darah" name="tekanan_darah" placeholder="120/180">
                         </div>
                         <div class="mb-3">
                             <label for="antrian">Nadi</label>
-                            <input type="number" class="form-control input-default" id="nadi" name="nadi">
+                            <input type="text" class="form-control input-default" id="nadi" name="nadi" placeholder="95-120">
                         </div>
                         <div class="mb-3">
                             <label for="antrian">Suhu Badan</label>
-                            <input type="number" class="form-control input-default" id="suhu_badan" name="suhu_badan">
+                            <input type="text" class="form-control input-default" id="suhu_badan" name="suhu_badan" placeholder="35°">
                         </div>
                         <div class="mb-3">
                             <label for="antrian">Pernapasan</label>

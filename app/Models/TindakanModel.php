@@ -4,28 +4,20 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UsersModel extends Model
+class TindakanModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'users';
+    protected $table            = 'tindakan';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'kode_user',
-        'username',
-        'email',
-        'password',
-        'email',
-        'name',
-        'alamat',
-        'role',
-        'tanggal_lahir',
-        'nomor_hp',
-        'jenis_kelamin',
-        'tanggal_lahir',
+        'kode_tindakan',
+        'nama_tindakan',
+        'deskripsi',
+        'harga',
         'created_at',
         'updated_at'
     ];
@@ -53,11 +45,4 @@ class UsersModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    function isUserExist($email) {
-        return $this->db->table('users')
-                        ->like('email', $email)
-                        ->orLike('username', $email)
-                        ->get()->getResultArray();
-    }
 }

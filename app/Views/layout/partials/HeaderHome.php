@@ -31,12 +31,6 @@
                         <ul class="nav-menu">
                             <li class="menu-active"><a href="<?= base_url('') ?>">Home</a></li>
                             <li><a href="<?= base_url('antrian-online') ?>">Antrian Online</a></li>
-                            <li class="menu-has-children"><a href="#">Drop Down Sample</a>
-                                <ul>
-                                    <li><a href="#">1 Drop</a></li>
-                                    <li><a href="#">2 Drop</a></li>
-                                </ul>
-                            </li>
                             <?php if (session()->get('isLoggedIn')): ?>
                                 <li class="profile-menu menu-has-children">
                                     <a href="#"><i class="fa fa-user-circle"></i> <?= session()->get('name') ?></a>

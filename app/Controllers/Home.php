@@ -15,6 +15,10 @@ class Home extends BaseController
     {
         $model = new Antrian();
         $currentQueue = $model->getLastQueueNumberByStatus('dalam_pemeriksaan');
+
+        if ($currentQueue === null) {
+            $currentQueue = "0";
+        }
         if ($this->request->getMethod(true) !== 'POST') {
             return view('pages/home/antrianHome', [
                 'currentQueue' => $currentQueue,
