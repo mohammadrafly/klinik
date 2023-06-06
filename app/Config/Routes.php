@@ -37,8 +37,8 @@ $routes->match(['POST', 'GET'], 'signup', 'AuthController::SignUp');
 
 $routes->get('chat/message', 'ChatController::load');
 $routes->post('chat/send', 'ChatController::send');
-$routes->get('fetch/profile', 'ChatController::fetchUser');
-$routes->get('fetch/user/list', 'ChatController::fetchUserList');
+$routes->get('/ws', 'ChatController::websocket');
+
 
 $routes->group('dashboard', ['filter' => 'auth'], function($routes) {
     $routes->get('/', 'DashboardController::index');

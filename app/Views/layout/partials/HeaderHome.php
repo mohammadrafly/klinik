@@ -30,7 +30,6 @@
                     <nav id="nav-menu-container">
                         <ul class="nav-menu">
                             <li class="menu-active"><a href="<?= base_url('') ?>">Home</a></li>
-                            <li><a href="<?= base_url('konsultasi') ?>">Konsultasi</a></li>
                             <li><a href="<?= base_url('antrian-online') ?>">Antrian Online</a></li>
                             <?php if (session()->get('isLoggedIn')): ?>
                                 <li class="profile-menu menu-has-children">

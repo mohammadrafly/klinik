@@ -23,59 +23,31 @@
     <link rel="stylesheet" href="<?= base_url('assets-fe/css/linearicons.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets-fe/css/style.css') ?>">
     <style>
-        /* User List Styles */
-.user-list {
-    list-style: none;
-    padding: 0;
+   .chat-messages {
+  height: 300px;
+  overflow-y: scroll;
 }
 
-.user-list li {
-    color: #fff;
-    background-color: #4285F4;
-    margin-bottom: 10px;
-    padding: 10px;
-    cursor: pointer;
+.message-container {
+  margin-bottom: 10px;
 }
 
-.user-list li:hover {
-    background-color: #3367D6;
+.message-content {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 10px;
 }
 
-/* Chat Box Styles */
-.chat-box {
-    background-color: #f2f2f2;
-    padding: 20px;
-    height: 400px;
-    overflow-y: scroll;
+.sent {
+  background-color: #e2f0ff;
+  float: right;
 }
 
-/* Chat Input Styles */
-.chat-input {
-    display: flex;
-    align-items: center;
-    margin-top: 20px;
+.received {
+  background-color: #f0f0f0;
+  float: left;
 }
 
-.message-input {
-    flex-grow: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-}
-
-.send-button {
-    margin-left: 10px;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.send-button:hover {
-    background-color: #45a049;
-}
 
     </style>
 </head>
