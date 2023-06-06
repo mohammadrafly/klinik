@@ -22,7 +22,7 @@ class PasienController extends BaseController
             'kode_user' => 'USR'. mt_rand(000000, 999999) . uniqid(),
             'username' => $this->request->getVar('username'),
             'email' => $this->request->getVar('email'),
-            'password' => $this->request->getVar('password'),
+            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
             'email' => $this->request->getVar('email'),
             'name' => $this->request->getVar('name'),
             'alamat' => $this->request->getVar('alamat'),
@@ -58,7 +58,7 @@ class PasienController extends BaseController
         $data = [
             'username' => $this->request->getVar('username'),
             'email' => $this->request->getVar('email'),
-            'password' => $this->request->getVar('password'),
+            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
             'email' => $this->request->getVar('email'),
             'name' => $this->request->getVar('name'),
             'alamat' => $this->request->getVar('alamat'),
