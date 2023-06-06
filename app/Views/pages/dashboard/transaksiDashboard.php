@@ -122,7 +122,7 @@ function printInvoice() {
 }
 
   $(document).ready(function() {
-    $('.btn-details').on('click', function() {
+    $('.btn-bayar').on('click', function() {
       var kode = $(this).data('kode');
       bayar(kode);
     });
